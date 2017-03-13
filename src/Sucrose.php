@@ -3,6 +3,7 @@
 namespace AgileElement;
 
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
 
 class Sucrose extends Model {
 
@@ -17,8 +18,15 @@ class Sucrose extends Model {
     public function setDeletedAttribute()
     {
         if(!is_null($this->attribute['deleted'])) {
-          $this->attribute['deleted'] = 1;
+            $this->attribute['deleted'] = 1;
         }
+    }
+
+    public function save(array $options = []) {
+        if ( empty($this->id) ) {
+            $this->id = Uuid::uuid1();
+        }
+        parent::save($options);
     }
 
 }

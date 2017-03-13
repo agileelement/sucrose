@@ -7,7 +7,9 @@
             "email": "matt.watson@agileelement.com"
         }
     ],
-    "require": {},
+    "require": {
+        "ramsey/uuid": "~3.0"
+    },
     "autoload": {
         "classmap": ["src"]
     }
