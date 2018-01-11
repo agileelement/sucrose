@@ -26,7 +26,7 @@ class Sucrose extends Model {
         if ( empty($this->id) ) {
             $this->id = Uuid::uuid1();
         }
-        parent::save($options);
+        return (parent::save($options));
     }
 
 }
